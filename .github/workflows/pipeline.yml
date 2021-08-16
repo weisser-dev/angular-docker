@@ -31,8 +31,8 @@ jobs:
       - name: build new docker container
         uses: appleboy/ssh-action@master
         env: 
-          - DOCKERUSER: ${{ secrets.USER }}
-          - DOCKERTOKEN: ${{ secrets.TOKEN }}
+          DOCKERUSER: ${{ secrets.USER }}
+          DOCKERTOKEN: ${{ secrets.TOKEN }}
         with:
           host: ${{ secrets.HOST }}
           USERNAME: ${{ secrets.USERNAME }}
