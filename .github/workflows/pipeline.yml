@@ -5,10 +5,13 @@ on:
       interval: "daily"
 
 jobs:
-  docker:
-    runs-on: ubuntu-latest
-    - uses: actions/checkout@v2
-    - name: docker_build
-      run: docker build . -t weisserdev/angular
 
-    
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      run: apt-get install npm && npm install -g @angular/cli:latest
+      run: docker build . -t weisserdev/angular:$(date +%s)
