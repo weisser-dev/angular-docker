@@ -16,6 +16,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: install angular for get current version info
-      run: apt-get install npm && npm install -g @angular/cli:latest
+      run: curl --silent "https://api.github.com/repos/angular/angular-cli/releases/latest" | grep -Po '"tag_name": "\K.*?(?=")'
     - name: build docker   
       run: docker build . -t weisserdev/angular:$(date +%s)
