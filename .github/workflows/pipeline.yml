@@ -4,8 +4,8 @@ on:
   push:
     branches:
       - main
-#  schedule:
-#    - cron: '0 1 * * *'
+  schedule:
+    - cron: '0 1 * * *'
 
 jobs:
 
@@ -15,6 +15,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Build the Docker image
+    - name: install angular for get current version info
       run: apt-get install npm && npm install -g @angular/cli:latest
+    - name: build docker   
       run: docker build . -t weisserdev/angular:$(date +%s)
