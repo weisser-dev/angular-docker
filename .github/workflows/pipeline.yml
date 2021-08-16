@@ -8,16 +8,6 @@ on:
     - cron: '0 1 * * *'
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v2
-    - name: install angular for get current version info
-      run: 
-    - name: build docker   
-      run: docker build . -t weisserdev/angular:$(date +%s)
-
   copy_files:
     runs-on: ubuntu-latest
     steps:
